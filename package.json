@@ -1,0 +1,117 @@
+{
+  "name": "domeui-components",
+  "description": "DomeUI component React UI library.",
+  "keywords": [
+    "react",
+    "next",
+    "biblioteca",
+    "library",
+    "storybook",
+    "componentes",
+    "components"
+  ],
+  "license": "MIT",
+  "version": "1.5.2",
+  "types": "dist/components.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dome-UI/dome-ui"
+  },
+  "scripts": {
+    "build": "rimraf dist && rimraf types && rimraf dist-storybook && rollup -c && build-storybook -o dist-storybook",
+    "dev": "start-storybook -p 6006",
+    "export:types": "tsc",
+    "export:docs:mdx": "find ./lib -name '*.mdx' -exec cp -prv '{}' './dist' ';' ",
+    "export:docs:json": "find ./lib -name '*.json' -exec cp -prv '{}' './docs/scripts/docs/metadata' ';' ",
+    "export:docs": "yarn export:docs:mdx && yarn export:docs:json && ls -la ./dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "22.0.0",
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "@rollup/plugin-typescript": "8.3.2",
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "8.0.4",
+    "@semantic-release/npm": "9.0.1",
+    "@semantic-release/release-notes-generator": "10.0.3",
+    "@storybook/addon-actions": "6.5.6",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-links": "6.5.6",
+    "@storybook/react": "^6.1.21",
+    "@types/react": "18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "babel-cli": "^6.26.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.0.1",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "next": "12.1.6",
+    "prettier": "^2.6.2",
+    "react": "^18.1.0",
+    "react-dom": "18.1.0",
+    "rimraf": "3.0.2",
+    "rollup": "2.75.5",
+    "rollup-plugin-dts": "4.2.2",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "semantic-release": "19.0.2",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "4.7.2"
+  },
+  "peerDependencies": {
+    "next": ">= 18.x.x",
+    "react": ">= 18.x.x",
+    "react-icons": "^4.3.1"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      "@semantic-release/changelog",
+      "@semantic-release/git"
+    ],
+    "branch": "main",
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  },
+  "dependencies": {
+    "@types/styled-components": "^5.1.25",
+    "react-icons": "^4.3.1",
+    "styled-components": "^5.3.5"
+  }
+}
